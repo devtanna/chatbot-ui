@@ -118,11 +118,11 @@ export const Promptbar: FC<Props> = ({
           <IconFolderPlus size={16} />
         </button>
 
-        <IconArrowBarRight
+        {/* <IconArrowBarRight
           className="hidden p-1 ml-1 cursor-pointer text-neutral-300 hover:text-neutral-400 sm:flex"
           size={32}
           onClick={onToggleSidebar}
-        />
+        /> */}
       </div>
 
       {prompts.length > 1 && (

@@ -139,11 +139,11 @@ export const Chatbar: FC<Props> = ({
           <IconFolderPlus size={18} />
         </button>
 
-        <IconArrowBarLeft
+        {/* <IconArrowBarLeft
           className="ml-1 hidden cursor-pointer p-1 text-neutral-300 hover:text-neutral-400 sm:flex"
           size={32}
           onClick={onToggleSidebar}
-        />
+        /> */}
       </div>
 
       {conversations.length > 1 && (
