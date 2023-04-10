@@ -215,7 +215,7 @@ export const Chat: FC<Props> = memo(
 
                     {models.length > 0 && (
                       <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
-                        <ModelSelect
+                        {/* <ModelSelect
                           model={conversation.model}
                           models={models}
                           defaultModelId={defaultModelId}
@@ -225,7 +225,7 @@ export const Chat: FC<Props> = memo(
                               value: model,
                             })
                           }
-                        />
+                        /> */}
 
                         <SystemPrompt
                           conversation={conversation}
