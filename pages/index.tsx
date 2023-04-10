@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({
 
   const [apiKey, setApiKey] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const [lightMode, setLightMode] = useState<'dark' | 'light'>('dark');
+  const [lightMode, setLightMode] = useState<'dark' | 'light'>('light');
   const [messageIsStreaming, setMessageIsStreaming] = useState<boolean>(false);
 
   const [modelError, setModelError] = useState<ErrorMessage | null>(null);
@@ -64,10 +64,10 @@ const Home: React.FC<HomeProps> = ({
     useState<Conversation>();
   const [currentMessage, setCurrentMessage] = useState<Message>();
 
-  const [showSidebar, setShowSidebar] = useState<boolean>(true);
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
   const [prompts, setPrompts] = useState<Prompt[]>([]);
-  const [showPromptbar, setShowPromptbar] = useState<boolean>(true);
+  const [showPromptbar, setShowPromptbar] = useState<boolean>(false);
 
   // REFS ----------------------------------------------
 
