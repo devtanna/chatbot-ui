@@ -28,8 +28,8 @@ export const OpenAIStream = async (
         },
         ...messages,
       ],
-      max_tokens: 2000,
-      temperature: 0.7,
+      // max_tokens: 2000,
+      temperature: 1.0,
       stream: true,
     }),
   });
