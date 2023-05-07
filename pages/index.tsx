@@ -621,7 +621,7 @@ const Home: React.FC<HomeProps> = ({
     <>
       <Head>
         <title>Sales Sherpa</title>
-        <meta name="description" content="ChatGPT but better." />
+        <meta name="description" content="Your Sales Assistant." />
         <meta
           name="viewport"
           content="height=device-height ,width=device-width, initial-scale=1, user-scalable=no"
