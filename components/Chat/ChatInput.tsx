@@ -318,7 +318,7 @@ export const ChatInput: FC<Props> = ({
           rel="noreferrer"
           className="underline"
         >
-          Sales Sherpa
+          Cookie & Crayon
         </a>
         .{' '}
         {t(

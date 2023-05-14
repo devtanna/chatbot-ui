@@ -620,8 +620,8 @@ const Home: React.FC<HomeProps> = ({
   return (
     <>
       <Head>
-        <title>Sales Sherpa</title>
-        <meta name="description" content="Your Sales Assistant." />
+        <title>Cookie & Crayon</title>
+        <meta name="description" content="Your Bedtime Story Partner." />
         <meta
           name="viewport"
           content="height=device-height ,width=device-width, initial-scale=1, user-scalable=no"
