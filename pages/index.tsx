@@ -113,10 +113,11 @@ const Home: React.FC<HomeProps> = ({
         body: JSON.stringify(chatBody),
       });
       const assistant_messages = chatBody.messages.filter(message => message.role === 'assistant')
-      const last_assistant_message = assistant_messages?.at(-1).content
-      console.log("Imagine:", last_assistant_message);
+      const last_assistant_message = assistant_messages.at(-1)
+      const imagine_prompt = last_assistant_message?.content
+      console.log("Imagine:", imagine_prompt);
       const imagine = await Imagine(
-        JSON.stringify({ prompt: last_assistant_message }),
+        JSON.stringify({ prompt: imagine_prompt }),
         (data: MJMessage) => {
           console.log(data);
         }
