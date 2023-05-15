@@ -34,6 +34,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Imagine } from "../request";
+import { MJMessage } from "midjourney";
 
 interface HomeProps {
   serverSideApiKeyIsSet: boolean;
@@ -52,20 +54,14 @@ const Home: React.FC<HomeProps> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const [lightMode, setLightMode] = useState<'dark' | 'light'>('light');
   const [messageIsStreaming, setMessageIsStreaming] = useState<boolean>(false);
-
   const [modelError, setModelError] = useState<ErrorMessage | null>(null);
-
   const [models, setModels] = useState<OpenAIModel[]>([]);
-
   const [folders, setFolders] = useState<Folder[]>([]);
-
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [selectedConversation, setSelectedConversation] =
     useState<Conversation>();
   const [currentMessage, setCurrentMessage] = useState<Message>();
-
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
-
   const [prompts, setPrompts] = useState<Prompt[]>([]);
   const [showPromptbar, setShowPromptbar] = useState<boolean>(false);
 
@@ -116,6 +112,12 @@ const Home: React.FC<HomeProps> = ({
         signal: controller.signal,
         body: JSON.stringify(chatBody),
       });
+      const imagine = await Imagine(
+        JSON.stringify({ prompt: chatBody }),
+        (data: MJMessage) => {
+          console.log(data);
+        }
+      );
 
       if (!response.ok) {
         setLoading(false);
