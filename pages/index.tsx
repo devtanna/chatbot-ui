@@ -112,8 +112,9 @@ const Home: React.FC<HomeProps> = ({
         signal: controller.signal,
         body: JSON.stringify(chatBody),
       });
+      console.log("Would send following to imagine:", JSON.stringify(chatBody))
       const imagine = await Imagine(
-        JSON.stringify({ prompt: chatBody }),
+        JSON.stringify({ prompt: JSON.stringify(chatBody) }),
         (data: MJMessage) => {
           console.log(data);
         }
