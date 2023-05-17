@@ -132,7 +132,7 @@ export const ChatMessage: FC<Props> = memo(
                   </div>
                 )}
 
-                {(window.innerWidth < 640 || !isEditing) && (
+                {/* {(window.innerWidth < 640 || !isEditing) && (
                   <button
                     className={`absolute translate-x-[1000px] text-gray-500 hover:text-gray-700 focus:translate-x-0 group-hover:translate-x-0 dark:text-gray-400 dark:hover:text-gray-300 ${
                       window.innerWidth < 640
@@ -144,7 +144,7 @@ export const ChatMessage: FC<Props> = memo(
                   >
                     <IconEdit size={20} />
                   </button>
-                )}
+                )} */}
               </div>
             ) : (
               <>
@@ -155,7 +155,7 @@ export const ChatMessage: FC<Props> = memo(
                       : 'right-0 top-[26px] m-0'
                   }`}
                 >
-                  {messagedCopied ? (
+                  {/* {messagedCopied ? (
                     <IconCheck
                       size={20}
                       className="text-green-500 dark:text-green-400"
@@ -167,7 +167,7 @@ export const ChatMessage: FC<Props> = memo(
                     >
                       <IconCopy size={20} />
                     </button>
-                  )}
+                  )} */}
                 </div>
 
                 <MemoizedReactMarkdown
