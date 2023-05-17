@@ -639,7 +639,7 @@ const Home: React.FC<HomeProps> = ({
             />
           </div>
 
-          {/* <div className="flex h-full w-full pt-[48px] sm:pt-0">
+          <div className="flex h-full w-full pt-[48px] sm:pt-0">
             {showSidebar ? (
               <div>
                 <Chatbar
@@ -664,7 +664,7 @@ const Home: React.FC<HomeProps> = ({
                   onImportConversations={handleImportConversations}
                 />
 
-                <button
+                {/* <button
                   className="fixed top-5 left-[270px] z-50 h-7 w-7 hover:text-gray-400 dark:text-white dark:hover:text-gray-300 sm:top-0.5 sm:left-[270px] sm:h-8 sm:w-8 sm:text-neutral-700"
                   onClick={handleToggleChatbar}
                 >
@@ -673,14 +673,14 @@ const Home: React.FC<HomeProps> = ({
                 <div
                   onClick={handleToggleChatbar}
                   className="absolute top-0 left-0 z-10 h-full w-full bg-black opacity-70 sm:hidden"
-                ></div>
+                ></div> */}
               </div>
             ) : (
               <button
                 className="fixed top-2.5 left-4 z-50 h-7 w-7 text-white hover:text-gray-400 dark:text-white dark:hover:text-gray-300 sm:top-0.5 sm:left-4 sm:h-8 sm:w-8 sm:text-neutral-700"
-                onClick={handleToggleChatbar}
+                // onClick={handleToggleChatbar}
               >
-                <IconArrowBarRight />
+                {/* <IconArrowBarRight /> */}
               </button>
             )}
 
@@ -715,7 +715,7 @@ const Home: React.FC<HomeProps> = ({
                   onDeleteFolder={handleDeleteFolder}
                   onUpdateFolder={handleUpdateFolder}
                 />
-                <button
+                {/* <button
                   className="fixed top-5 right-[270px] z-50 h-7 w-7 hover:text-gray-400 dark:text-white dark:hover:text-gray-300 sm:top-0.5 sm:right-[270px] sm:h-8 sm:w-8 sm:text-neutral-700"
                   onClick={handleTogglePromptbar}
                 >
@@ -724,17 +724,17 @@ const Home: React.FC<HomeProps> = ({
                 <div
                   onClick={handleTogglePromptbar}
                   className="absolute top-0 left-0 z-10 h-full w-full bg-black opacity-70 sm:hidden"
-                ></div>
+                ></div> */}
               </div>
             ) : (
               <button
                 className="fixed top-2.5 right-4 z-50 h-7 w-7 text-white hover:text-gray-400 dark:text-white dark:hover:text-gray-300 sm:top-0.5 sm:right-4 sm:h-8 sm:w-8 sm:text-neutral-700"
-                onClick={handleTogglePromptbar}
+                // onClick={handleTogglePromptbar}
               >
-                <IconArrowBarLeft />
+                {/* <IconArrowBarLeft /> */}
               </button>
             )}
-          </div> */}
+          </div>
         </main>
       )}
     </>
