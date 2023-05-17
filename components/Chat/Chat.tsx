@@ -154,12 +154,12 @@ export const Chat: FC<Props> = memo(
         {!(apiKey || serverSideApiKeyIsSet) ? (
           <div className="mx-auto flex h-full w-[300px] flex-col justify-center space-y-6 sm:w-[600px]">
             <div className="text-center text-4xl font-bold text-black dark:text-white">
-              Welcome to Chatbot UI
+              Welcome to Sales Sherpa
             </div>
             <div className="text-center text-lg text-black dark:text-white">
-              <div className="mb-8">{`Chatbot UI is an open source clone of OpenAI's ChatGPT UI.`}</div>
+              <div className="mb-8">{`Sales Sherpa`}</div>
               <div className="mb-2 font-bold">
-                Important: Chatbot UI is 100% unaffiliated with OpenAI.
+                Important: Sales Sherpa is 100% unaffiliated with OpenAI.
               </div>
             </div>
             <div className="text-center text-gray-500 dark:text-gray-400">
@@ -252,7 +252,7 @@ export const Chat: FC<Props> = memo(
                       <IconSettings size={18} />
                     </button> */}
                     <button
-                      className="ml-2 cursor-pointer hover:opacity-50"
+                      className="ml-auto cursor-pointer hover:opacity-50"
                       onClick={onClearAll}
                     >
                       <IconClearAll size={18} />
