@@ -81,10 +81,10 @@ export const ChatMessage: FC<Props> = memo(
       >
         <div className="relative m-auto flex gap-4 p-4 text-base md:max-w-2xl md:gap-6 md:py-6 lg:max-w-2xl lg:px-0 xl:max-w-3xl">
           <div className="min-w-[40px] text-right font-bold">
-            {message.role === 'assistant' ? t('AI') : t('You')}:
+            {/* {message.role === 'assistant' ? t('AI') : t('You')}: */}
           </div>
 
-          <div className="prose mt-[-2px] w-full dark:prose-invert">
+          <div className="prose mt-[-2px] w-full dark:prose-invert" style={{direction: 'rtl'}}>
             {message.role === 'user' ? (
               <div className="flex w-full">
                 {isEditing ? (
