@@ -215,6 +215,12 @@ export const Chat: FC<Props> = memo(
 
                     {models.length > 0 && (
                       <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
+                        <div className="flex flex-col">
+                          <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
+                            An easy-to-use assistant that allows you to better prepare for your sales journey.
+                            Start by typing in a question or a statement and Sales Sherpa will begin to guide you.
+                          </label>
+                        </div>
                         {/* <ModelSelect
                           model={conversation.model}
                           models={models}
@@ -225,7 +231,7 @@ export const Chat: FC<Props> = memo(
                               value: model,
                             })
                           }
-                        /> */}
+                        />
 
                         <SystemPrompt
                           conversation={conversation}
@@ -236,7 +242,7 @@ export const Chat: FC<Props> = memo(
                               value: prompt,
                             })
                           }
-                        />
+                        /> */}
                       </div>
                     )}
                   </div>
@@ -244,7 +250,7 @@ export const Chat: FC<Props> = memo(
               ) : (
                 <>
                   {/* <div className="flex justify-center border border-b-neutral-300 bg-neutral-100 py-2 text-sm text-neutral-500 dark:border-none dark:bg-[#444654] dark:text-neutral-200"> */}
-                  <div className="flex justify-center">
+                  <div className="flex justify-center text-neutral-500">
                     {/* {t('Model')}: {conversation.model.name}
                     <button
                       className="ml-2 cursor-pointer hover:opacity-50"
