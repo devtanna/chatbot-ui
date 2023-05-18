@@ -214,12 +214,15 @@ export const Chat: FC<Props> = memo(
                     </div>
 
                     {models.length > 0 && (
-                      <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
+                      // <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
+                      <div className="flex h-full flex-col space-y-4 rounded-lg">
                         <div className="flex flex-col">
-                          <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
-                            An easy-to-use assistant that allows you to better prepare for your sales journey.
-                            Start by typing in a question or a statement and Sales Sherpa will begin to guide you.
-                          </label>
+                          <div className="display:flex justify-content:center align-items:center">
+                            {/* <div>
+                            An easy-to-use assistant that allows you to better prepare for your sales journey. Start by typing in a question or a statement and Sales Sherpa will begin to guide you.
+                            </div> */}
+                            <img src="https://images.squarespace-cdn.com/content/v1/646283eec92c6f5503a1db9a/947f87f0-8811-4ef0-833e-28b1822a2f86/Sherpa+logo.png?format=1000w" alt="Sales Sherpa" />
+                          </div>
                         </div>
                         {/* <ModelSelect
                           model={conversation.model}

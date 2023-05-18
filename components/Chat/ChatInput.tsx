@@ -316,7 +316,7 @@ export const ChatInput: FC<Props> = ({
           // href="#"
           // target="_blank"
           rel="noreferrer"
-          className="underline"
+          // className="underline"
         >
           Sales Sherpa
         </a>
