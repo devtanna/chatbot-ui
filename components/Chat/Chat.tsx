@@ -4,7 +4,7 @@ import { ErrorMessage } from '@/types/error';
 import { OpenAIModel, OpenAIModelID } from '@/types/openai';
 import { Prompt } from '@/types/prompt';
 import { throttle } from '@/utils';
-import { IconArrowDown, IconClearAll, IconSettings } from '@tabler/icons-react';
+import { IconArrowDown, IconTrash } from '@tabler/icons-react';
 import { useTranslation } from 'next-i18next';
 import {
   FC,
@@ -265,7 +265,8 @@ export const Chat: FC<Props> = memo(
                       className="ml-auto cursor-pointer hover:opacity-50"
                       onClick={onClearAll}
                     >
-                      <IconClearAll size={18} />
+                      {/* <IconClearAll size={18} /> */}
+                      <IconTrash size={18} />
                     </button>
                   </div>
                   {showSettings && (
