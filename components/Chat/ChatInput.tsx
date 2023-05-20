@@ -322,7 +322,7 @@ export const ChatInput: FC<Props> = ({
         </a>
         .{' '}
         {t(
-          "Made with ❤️.",
+          "Made with ❤️ in Munich.",
         )}
       </div>
     </div>
