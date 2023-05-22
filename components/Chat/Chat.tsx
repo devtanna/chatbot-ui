@@ -221,7 +221,7 @@ export const Chat: FC<Props> = memo(
                             {/* <div>
                             An easy-to-use assistant that allows you to better prepare for your sales journey. Start by typing in a question or a statement and Sales Sherpa will begin to guide you.
                             </div> */}
-                            <img src="https://images.squarespace-cdn.com/content/v1/646283eec92c6f5503a1db9a/947f87f0-8811-4ef0-833e-28b1822a2f86/Sherpa+logo.png?format=600w" alt="Sales Sherpa" />
+                            <img src="/sherpa_logo.png" alt="Sales Sherpa" />
                           </div>
                         </div>
                         {/* <ModelSelect
