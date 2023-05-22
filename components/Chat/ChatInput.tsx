@@ -1,7 +1,8 @@
-import { Message } from '@/types/chat';
+import { Conversation, Message } from '@/types/chat';
+import { KeyValuePair } from '@/types/data';
 import { OpenAIModel } from '@/types/openai';
 import { Prompt } from '@/types/prompt';
-import { IconPlayerStop, IconRepeat, IconSend } from '@tabler/icons-react';
+import { IconPlayerStop, IconRepeat, IconSend, IconTrash } from '@tabler/icons-react';
 import { useTranslation } from 'next-i18next';
 import {
   FC,
@@ -16,6 +17,7 @@ import { PromptList } from './PromptList';
 import { VariableModal } from './VariableModal';
 
 interface Props {
+  conversation: Conversation;
   messageIsStreaming: boolean;
   model: OpenAIModel;
   conversationIsEmpty: boolean;
@@ -23,11 +25,16 @@ interface Props {
   prompts: Prompt[];
   onSend: (message: Message) => void;
   onRegenerate: () => void;
+  onUpdateConversation: (
+    conversation: Conversation,
+    data: KeyValuePair,
+  ) => void;
   stopConversationRef: MutableRefObject<boolean>;
   textareaRef: MutableRefObject<HTMLTextAreaElement | null>;
 }
 
 export const ChatInput: FC<Props> = ({
+  conversation,
   messageIsStreaming,
   model,
   conversationIsEmpty,
@@ -37,6 +44,7 @@ export const ChatInput: FC<Props> = ({
   onRegenerate,
   stopConversationRef,
   textareaRef,
+  onUpdateConversation,
 }) => {
   const { t } = useTranslation('chat');
 
@@ -70,6 +78,12 @@ export const ChatInput: FC<Props> = ({
 
     setContent(value);
     updatePromptListVisibility(value);
+  };
+
+  const onClearAll = () => {
+    if (confirm(t<string>('Are you sure you want to clear all messages?'))) {
+      onUpdateConversation(conversation, { key: 'messages', value: [] });
+    }
   };
 
   const handleSend = () => {
@@ -282,8 +296,16 @@ export const ChatInput: FC<Props> = ({
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
-          <button
+          
+          {!conversationIsEmpty && <button
             className="absolute right-2 top-2 rounded-sm p-1 text-neutral-800 opacity-60 hover:bg-neutral-200 hover:text-neutral-900 dark:bg-opacity-50 dark:text-neutral-100 dark:hover:text-neutral-200"
+            onClick={onClearAll}
+          >
+            <IconTrash size={18} />
+          </button>}
+
+          <button
+            className={conversationIsEmpty? "absolute right-2 top-2 rounded-sm p-1 text-neutral-800 opacity-60 hover:bg-neutral-200 hover:text-neutral-900 dark:bg-opacity-50 dark:text-neutral-100 dark:hover:text-neutral-200" : "absolute right-11 top-2 rounded-sm p-1 text-neutral-800 opacity-60 hover:bg-neutral-200 hover:text-neutral-900 dark:bg-opacity-50 dark:text-neutral-100 dark:hover:text-neutral-200"}
             onClick={handleSend}
           >
             <IconSend size={18} />
