@@ -10,6 +10,7 @@ import {
   useEffect,
   useRef,
   useState,
+  ChangeEvent,
 } from 'react';
 import { PromptList } from './PromptList';
 import { VariableModal } from './VariableModal';
@@ -44,8 +45,12 @@ export const SystemPrompt: FC<Props> = ({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const promptListRef = useRef<HTMLUListElement | null>(null);
 
-  const handleSysInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+  const handleSysInputChange = (e: ChangeEvent<HTMLTextAreaElement> | KeyboardEvent<HTMLTextAreaElement>) => {
+    // const { name, value } = e.target;
+
+    const { value } = e.target as HTMLTextAreaElement;
+    const name = (e.target as HTMLTextAreaElement).getAttribute('name');
+
     switch (name) {
       case 'persona':
         setSysInput1(value);
@@ -247,7 +252,7 @@ export const SystemPrompt: FC<Props> = ({
           }`,
         }}
         placeholder={'drunken sailor'}
-        value={t(sysInput1)}
+        value={t(sysInput1) || ''}
         onChange={handleSysInputChange}
         onKeyUp={handleSysInputChange}
         onKeyDown={handleSysInputChange}
@@ -271,7 +276,7 @@ export const SystemPrompt: FC<Props> = ({
           }`,
         }}
         placeholder={'sports'}
-        value={t(sysInput2)}
+        value={t(sysInput2) || ''}
         onChange={handleSysInputChange}
         onKeyUp={handleSysInputChange}
         onKeyDown={handleSysInputChange}
@@ -295,7 +300,7 @@ export const SystemPrompt: FC<Props> = ({
           }`,
         }}
         placeholder={'yoga instructor'}
-        value={t(sysInput3)}
+        value={t(sysInput3) || ''}
         onChange={handleSysInputChange}
         onKeyUp={handleSysInputChange}
         onKeyDown={handleSysInputChange}
@@ -319,7 +324,7 @@ export const SystemPrompt: FC<Props> = ({
           }`,
         }}
         placeholder={'teach me flexibility'}
-        value={t(sysInput4)}
+        value={t(sysInput4) || ''}
         onChange={handleSysInputChange}
         onKeyUp={handleSysInputChange}
         onKeyDown={handleSysInputChange}
