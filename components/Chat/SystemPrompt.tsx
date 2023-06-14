@@ -307,7 +307,7 @@ export const SystemPrompt: FC<Props> = ({
         rows={1}
       />
       <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
-        {t('Request')}
+        {t('I want my bot to:')}
       </label>
       <textarea
         ref={textareaRef}
