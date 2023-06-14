@@ -34,8 +34,47 @@ export const SystemPrompt: FC<Props> = ({
   const [variables, setVariables] = useState<string[]>([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const [sysInput1, setSysInput1] = useState('drunken sailor');
+  const [sysInput2, setSysInput2] = useState('sports');
+  const [sysInput3, setSysInput3] = useState('yoga instructor');
+  const [sysInput4, setSysInput4] = useState('teach me flexibility');
+  const defaultCombinedSysPromptValue = DEFAULT_SYSTEM_PROMPT.replace('{sysInput1}', sysInput1).replace('{sysInput2}', sysInput2).replace('{sysInput3}', sysInput3).replace('{sysInput4}', sysInput4);
+  const [combinedSysPromptValue, setSysPromptValue] = useState(defaultCombinedSysPromptValue);
+
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const promptListRef = useRef<HTMLUListElement | null>(null);
+
+  const handleSysInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case 'persona':
+        setSysInput1(value);
+        break;
+      case 'topic':
+        setSysInput2(value);
+        break;
+      case 'expertise':
+        setSysInput3(value);
+        break;
+      case 'request':
+        setSysInput4(value);
+        break;
+      default:
+        break;
+    }
+
+    // Combine the values from all three text boxes
+    const combinedText = DEFAULT_SYSTEM_PROMPT
+      .replace('{sysInput1}', sysInput1)
+      .replace('{sysInput2}', sysInput2)
+      .replace('{sysInput3}', sysInput3)
+      .replace('{sysInput4}', sysInput4);
+
+    // Update the prompt
+    setSysPromptValue(combinedText);
+    setValue(combinedText);
+    onChangePrompt(combinedText);
+  };
 
   const filteredPrompts = prompts.filter((prompt) =>
     prompt.name.toLowerCase().includes(promptInputValue.toLowerCase()),
@@ -191,6 +230,103 @@ export const SystemPrompt: FC<Props> = ({
   return (
     <div className="flex flex-col">
       <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
+        {t('Persona')}
+      </label>
+      <textarea
+        ref={textareaRef}
+        name={'persona'}
+        className="mb-2 w-full rounded-lg border border-neutral-200 bg-transparent px-4 py-3 text-neutral-900 dark:border-neutral-600 dark:text-neutral-100"
+        style={{
+          resize: 'none',
+          bottom: `${textareaRef?.current?.scrollHeight}px`,
+          maxHeight: '300px',
+          overflow: `${
+            textareaRef.current && textareaRef.current.scrollHeight > 400
+              ? 'auto'
+              : 'hidden'
+          }`,
+        }}
+        placeholder={'drunken sailor'}
+        value={t(sysInput1)}
+        onChange={handleSysInputChange}
+        onKeyUp={handleSysInputChange}
+        onKeyDown={handleSysInputChange}
+        rows={1}
+      />
+      <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
+        {t('Topic')}
+      </label>
+      <textarea
+        ref={textareaRef}
+        name={'topic'}
+        className="mb-2 w-full rounded-lg border border-neutral-200 bg-transparent px-4 py-3 text-neutral-900 dark:border-neutral-600 dark:text-neutral-100"
+        style={{
+          resize: 'none',
+          bottom: `${textareaRef?.current?.scrollHeight}px`,
+          maxHeight: '300px',
+          overflow: `${
+            textareaRef.current && textareaRef.current.scrollHeight > 400
+              ? 'auto'
+              : 'hidden'
+          }`,
+        }}
+        placeholder={'sports'}
+        value={t(sysInput2)}
+        onChange={handleSysInputChange}
+        onKeyUp={handleSysInputChange}
+        onKeyDown={handleSysInputChange}
+        rows={1}
+      />
+      <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
+        {t('Expertise')}
+      </label>
+      <textarea
+        ref={textareaRef}
+        name={'expertise'}
+        className="mb-2 w-full rounded-lg border border-neutral-200 bg-transparent px-4 py-3 text-neutral-900 dark:border-neutral-600 dark:text-neutral-100"
+        style={{
+          resize: 'none',
+          bottom: `${textareaRef?.current?.scrollHeight}px`,
+          maxHeight: '300px',
+          overflow: `${
+            textareaRef.current && textareaRef.current.scrollHeight > 400
+              ? 'auto'
+              : 'hidden'
+          }`,
+        }}
+        placeholder={'yoga instructor'}
+        value={t(sysInput3)}
+        onChange={handleSysInputChange}
+        onKeyUp={handleSysInputChange}
+        onKeyDown={handleSysInputChange}
+        rows={1}
+      />
+      <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
+        {t('Request')}
+      </label>
+      <textarea
+        ref={textareaRef}
+        name={'request'}
+        className="mb-2 w-full rounded-lg border border-neutral-200 bg-transparent px-4 py-3 text-neutral-900 dark:border-neutral-600 dark:text-neutral-100"
+        style={{
+          resize: 'none',
+          bottom: `${textareaRef?.current?.scrollHeight}px`,
+          maxHeight: '300px',
+          overflow: `${
+            textareaRef.current && textareaRef.current.scrollHeight > 400
+              ? 'auto'
+              : 'hidden'
+          }`,
+        }}
+        placeholder={'teach me flexibility'}
+        value={t(sysInput4)}
+        onChange={handleSysInputChange}
+        onKeyUp={handleSysInputChange}
+        onKeyDown={handleSysInputChange}
+        rows={1}
+      />
+      
+      <label className="mb-2 text-left text-neutral-700 dark:text-neutral-400">
         {t('System Prompt')}
       </label>
       <textarea
@@ -207,7 +343,7 @@ export const SystemPrompt: FC<Props> = ({
           }`,
         }}
         placeholder={
-          t(`Enter a prompt or type "/" to select a prompt...`) || ''
+          t(`Enter a prompt...`) || ''
         }
         value={t(value) || ''}
         rows={1}

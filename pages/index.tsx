@@ -34,8 +34,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Imagine } from "../request";
-import { MJMessage } from "midjourney";
 
 interface HomeProps {
   serverSideApiKeyIsSet: boolean;
@@ -114,14 +112,6 @@ const Home: React.FC<HomeProps> = ({
       });
       const assistant_messages = chatBody.messages.filter(message => message.role === 'assistant')
       const last_assistant_message = assistant_messages.at(-1)
-      const imagine_prompt = last_assistant_message?.content
-      console.log("Imagine:", imagine_prompt);
-      const imagine = await Imagine(
-        JSON.stringify({ prompt: imagine_prompt }),
-        (data: MJMessage) => {
-          console.log(data);
-        }
-      );
 
       if (!response.ok) {
         setLoading(false);
@@ -626,7 +616,7 @@ const Home: React.FC<HomeProps> = ({
   return (
     <>
       <Head>
-        <title>Cookie & Crayon</title>
+        <title>SolveMy AI</title>
         <meta name="description" content="Your Bedtime Story Partner." />
         <meta
           name="viewport"

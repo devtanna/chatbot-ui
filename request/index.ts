@@ -42,7 +42,3 @@ const streamFetch = async (
     console.log("Response body is null");
   }
 };
-
-export const Imagine = (body: string, loading?: (uri: MJMessage) => void) => {
-  return streamFetch("api/imagine", body, loading);
-};

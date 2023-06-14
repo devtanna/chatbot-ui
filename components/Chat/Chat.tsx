@@ -209,7 +209,7 @@ export const Chat: FC<Props> = memo(
                           <Spinner size="16px" className="mx-auto" />
                         </div>
                       ) : (
-                        'Cookie & Crayon'
+                        'SolveMy AI'
                       )}
                     </div>
 
