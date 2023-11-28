@@ -101,6 +101,8 @@ const Home: React.FC<HomeProps> = ({
         prompt: updatedConversation.prompt,
       };
 
+      console.log("using model", chatBody.model);
+
       const controller = new AbortController();
       const response = await fetch('/api/chat', {
         method: 'POST',
